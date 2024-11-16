@@ -1,4 +1,4 @@
-import H1 from "./H1";
+import H1 from "./Heading";
 
 const techs = {
   title: "Tech stack",
@@ -26,7 +26,7 @@ const skills = [techs, tools];
 
 const Skills = () => {
   return (
-    <section data-aos='flip-down' id='skills' className='mb-20'>
+    <section data-aos='flip-down' id='skills' className='py-20'>
       <div className='flex flex-col'>
         <H1>
           My <span className='text-secondary'>Skills</span>
@@ -34,7 +34,6 @@ const Skills = () => {
         {skills.map((skill, i) => (
           <div key={i}>
             <h2
-              data-aos='fade-left'
               className='duration-300 ml-20 cursor-default text-xl flex w-fit items-center mb-20 gap-5 hover:gap-10 hover:bg-bg4/10 px-5 py-3 rounded-full shadow-lg
             before:size-2 before:bg-secondary before:rounded-full before:inline-block '
             >
@@ -52,7 +51,9 @@ const Skills = () => {
                     alt={tech.name}
                     className=' h-12 max-w-12 group-hover:-translate-y-2 duration-300'
                   />
-                  <span>{tech.name}</span>
+                  <span className='text-primary/60 group-hover:text-primary duration-300'>
+                    {tech.name}
+                  </span>
                 </li>
               ))}
             </ul>

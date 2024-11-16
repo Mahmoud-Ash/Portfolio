@@ -1,8 +1,8 @@
-import H1 from "./H1";
+import H1 from "./Heading";
 
 const About = () => {
   return (
-    <section data-aos='flip-down' id='about' className='mb-10'>
+    <section data-aos='flip-down' id='about' className='py-20'>
       <div className='flex flex-col'>
         <H1>
           <span className='text-secondary'>About</span> Me

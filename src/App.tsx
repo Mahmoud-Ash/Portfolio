@@ -6,6 +6,7 @@ import Skills from "./components/Skills";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Contact from "./components/Contact";
 
 function App() {
   useEffect(() => {
@@ -17,13 +18,17 @@ function App() {
   }, []);
 
   return (
-    <main className='max-w-[1200px] mx-auto px-10 pb-10 rounded-xl'>
-      <Header />
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-    </main>
+    <>
+      <main className='max-w-[1200px] mx-auto px-10 pb-10 rounded-xl'>
+        <Header />
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+      <footer></footer>
+    </>
   );
 }
 

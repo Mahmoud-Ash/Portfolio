@@ -1,28 +1,30 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import { VscGithubAlt } from "react-icons/vsc";
+// import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+// import { VscGithubAlt } from "react-icons/vsc";
 
-const socials = [
-  {
-    title: "facebook",
-    icon: <FaFacebookF />,
-    url: "https://www.facebook.com/MahmoudAshraf101/",
-  },
-  {
-    title: "instagram",
-    icon: <FaInstagram />,
-    url: "https://www.instagram.com/mahmoud_ash97/",
-  },
-  {
-    title: "github",
-    icon: <VscGithubAlt />,
-    url: "https://github.com/Mahmoud-Ash",
-  },
-  {
-    title: "linkedin",
-    icon: <FaLinkedinIn />,
-    url: "https://www.linkedin.com/in/mahmoud-ashraf97/",
-  },
-];
+import { socials } from "../lib/constants";
+
+// const socials = [
+//   {
+//     title: "facebook",
+//     icon: <FaFacebookF />,
+//     url: "https://www.facebook.com/MahmoudAshraf101/",
+//   },
+//   {
+//     title: "instagram",
+//     icon: <FaInstagram />,
+//     url: "https://www.instagram.com/mahmoud_ash97/",
+//   },
+//   {
+//     title: "github",
+//     icon: <VscGithubAlt />,
+//     url: "https://github.com/Mahmoud-Ash",
+//   },
+//   {
+//     title: "linkedin",
+//     icon: <FaLinkedinIn />,
+//     url: "https://www.linkedin.com/in/mahmoud-ashraf97/",
+//   },
+// ];
 
 const Home = () => {
   return (
@@ -38,7 +40,7 @@ const Home = () => {
             className='size-full object-cover duration-300 hover:scale-105 shadow-2xl'
           />
         </div>
-        <div className='flex gap-4'>
+        {/* <div className='flex gap-4'>
           {socials.map((item, i) => (
             <a
               key={i}
@@ -46,6 +48,19 @@ const Home = () => {
               target='_blank'
               title={item.title}
               className='h-10 aspect-square text-xl duration-500 ring- ring-primary/80 hover:ring-0 text-primary/80 hover:text-primary rounded-full border-animated'
+            >
+              {item.icon}
+            </a>
+          ))}
+        </div> */}
+        <div className='flex gap-8 justify-center'>
+          {socials.map((item, i) => (
+            <a
+              key={i}
+              href={item.url}
+              target='_blank'
+              title={item.title}
+              className='text-2xl duration-300 ring- ring-primary/80 hover:ring-0 text-primary/50 hover:text-secondary'
             >
               {item.icon}
             </a>

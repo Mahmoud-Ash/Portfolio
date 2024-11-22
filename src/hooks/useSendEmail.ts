@@ -35,6 +35,7 @@ const useSendEmail = (form: HTMLFormElement | null) => {
       );
       console.log("SUCCESS!", res);
       alert("Message sent successfully!");
+      setFormData({ fullname: "", email: "", message: "" })
     } catch (err) {
       if (err instanceof EmailJSResponseStatus) {
         console.log("EMAILJS FAILED...", err);

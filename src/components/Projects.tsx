@@ -1,5 +1,8 @@
 import Link from "./Link";
 import H1 from "./Heading";
+import { useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
+import { useActiveSection } from "../context/ActiveSection.tsx/ActiveSectionContext";
 
 const projects = [
   {
@@ -34,8 +37,21 @@ const projects = [
 ];
 
 const Projects = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { setActiveSection } = useActiveSection();
+  const isInView = useInView(sectionRef, { once: false, amount: 0.6 });
+
+  useEffect(() => {
+    if (isInView) setActiveSection(3);
+  }, [isInView, setActiveSection]);
+
   return (
-    <section data-aos='flip-down' id='projects' className='py-20'>
+    <section
+      ref={sectionRef}
+      data-aos='flip-down'
+      id='projects'
+      className='py-20'
+    >
       <div className='flex flex-col gap-5'>
         <H1>
           My <span className='text-secondary'>Projects</span>
@@ -43,13 +59,13 @@ const Projects = () => {
         {projects.map((project, i) => (
           <div
             key={project.title}
-            className={`flex rounded-2xl bg-bg4/20 overflow-hidden min-h-96
-                ${i % 2 ? "flex-row-reverse" : ""}`}
+            className={`flex flex-col rounded-2xl bg-bg4/20 overflow-hidden min-h-96
+                ${i % 2 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
           >
             {/* DETAILS   */}
             <div
               data-aos='flip-down'
-              className='w-1/2 bg-blue-200/20 p-10 space-y-5'
+              className='lg:w-1/2 bg-blue-200/20 p-10 space-y-5'
             >
               {/* TITLE  */}
               <div className='space-y-2'>
@@ -85,14 +101,14 @@ const Projects = () => {
             {/* IMAGE  */}
             <div
               data-aos='flip-right'
-              className='group w-1/2 overflow-hidden grid'
+              className='group lg:w-1/2 overflow-hidden grid'
             >
               <img
                 src={project.img}
                 alt='project demo'
                 className='size-full object-cover group-hover:scale-110 duration-300 row-start-1 col-start-1'
               />
-              <div className='z-10 size-full bg-bg2/30 p-10 flex gap-5 group-hover:bg-transparent duration-300 justify-center items-end row-start-1 col-start-1'>
+              <div className='z-10 w-full bg-bg2/30 py-10 px-2 flex flex-wrap gap-5 group-hover:bg-transparent duration-300 justify-center items-end row-start-1 col-start-1'>
                 {project.repo && (
                   <Link href={project.repo}>View Source Code</Link>
                 )}

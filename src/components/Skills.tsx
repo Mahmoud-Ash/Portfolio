@@ -1,4 +1,7 @@
+import { useEffect, useRef } from "react";
 import H1 from "./Heading";
+import { useActiveSection } from "../context/ActiveSection.tsx/ActiveSectionContext";
+import { useInView } from "framer-motion";
 
 const techs = {
   title: "Tech stack",
@@ -25,8 +28,21 @@ const tools = {
 const skills = [techs, tools];
 
 const Skills = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { setActiveSection } = useActiveSection();
+  const isInView = useInView(sectionRef, { once: false, amount: 0.6 });
+
+  useEffect(() => {
+    if (isInView) setActiveSection(2);
+  }, [isInView, setActiveSection]);
+
   return (
-    <section data-aos='flip-down' id='skills' className='py-20'>
+    <section
+      ref={sectionRef}
+      data-aos='flip-down'
+      id='skills'
+      className='py-20'
+    >
       <div className='flex flex-col'>
         <H1>
           My <span className='text-secondary'>Skills</span>
@@ -34,7 +50,7 @@ const Skills = () => {
         {skills.map((skill, i) => (
           <div key={i}>
             <h2
-              className='duration-300 ml-20 cursor-default text-xl flex w-fit items-center mb-20 gap-5 hover:gap-10 hover:bg-bg4/10 px-5 py-3 rounded-full shadow-lg
+              className='duration-300 ml-5 sm:ml-20 cursor-default text-lg flex w-fit items-center mb-20 gap-5 hover:gap-10 hover:bg-bg4/10 px-5 py-3 rounded-full shadow-lg
             before:size-2 before:bg-secondary before:rounded-full before:inline-block '
             >
               {skill.title}

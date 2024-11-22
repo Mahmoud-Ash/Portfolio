@@ -76,7 +76,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
 }
 .border-animated::before {
   content: "";
@@ -106,7 +106,7 @@ body {
 @keyframes down {
   from {
     opacity: 0;
-    transform: translatey(-100px);
+    transform: translateX(50%) translatey(-100px);
   }
 }
 .fade-in-down {

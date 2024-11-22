@@ -39,6 +39,7 @@ const Input = ({
         name={name}
         type={type}
         required={required}
+        value={formData?.[name]}
         onChange={onChange}
         className='p-5 rounded-full w-full max-w-md bg-bg4/20 shadow-lg outline-none focus:ring focus:ring-secondary'
       />

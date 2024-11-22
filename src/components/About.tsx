@@ -1,8 +1,19 @@
+import { useEffect, useRef } from "react";
 import H1 from "./Heading";
+import { useInView } from "framer-motion";
+import { useActiveSection } from "../context/ActiveSection.tsx/ActiveSectionContext";
 
 const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { setActiveSection } = useActiveSection();
+  const isInView = useInView(sectionRef, { once: false, amount: 1 });
+
+  useEffect(() => {
+    if (isInView) setActiveSection(1);
+  }, [isInView, setActiveSection]);
+
   return (
-    <section data-aos='flip-down' id='about' className='py-20'>
+    <section ref={sectionRef} data-aos='flip-down' id='about' className='py-20'>
       <div className='flex flex-col'>
         <H1>
           <span className='text-secondary'>About</span> Me

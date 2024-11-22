@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Contact from "./components/Contact";
+import ActiveSectionProvider from "./context/ActiveSection.tsx/ActiveSectionProvider";
 
 function App() {
   useEffect(() => {
@@ -19,15 +20,17 @@ function App() {
 
   return (
     <>
-      <main className='max-w-[1200px] mx-auto px-10 pb-10 rounded-xl'>
+      <ActiveSectionProvider>
         <Header />
-        <Home />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <footer></footer>
+        <main className='max-w-[1200px] mx-auto px-10 pb-10 rounded-xl'>
+          <Home />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <footer></footer>
+      </ActiveSectionProvider>
     </>
   );
 }

@@ -1,20 +1,43 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { socials } from "../lib/constants";
 import H1 from "./Heading";
 import Input from "./Input";
 import { IoSend } from "react-icons/io5";
 import { twMerge } from "tailwind-merge";
 import useSendEmail from "../hooks/useSendEmail";
+import { useActiveSection } from "../context/ActiveSection.tsx/ActiveSectionContext";
+import { useInView } from "framer-motion";
 
 const Contact = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const form = useRef<HTMLFormElement | null>(null);
+  const { setActiveSection } = useActiveSection();
+  const isInView = useInView(sectionRef, { once: false, amount: 1 });
   const { formData, handleChange, sendEmail } = useSendEmail(form.current);
 
+  useEffect(() => {
+    if (isInView) setActiveSection(4);
+  }, [isInView, setActiveSection]);
+
   return (
-    <section data-aos='flip-down' id='contact' className='pt-20'>
+    <section
+      ref={sectionRef}
+      data-aos='flip-down'
+      id='contact'
+      className='pt-20 space-y-6'
+    >
       <H1>
         get <span className='text-secondary'>in touch</span>
       </H1>
+      <p className='text-center'>
+        You can Directly contact me via :{" "}
+        <a
+          className='text-secondary'
+          href='mailto:mahmoudashraf.civil@gmail.com'
+        >
+          Mahmoudashraf.civil@gmail.com
+        </a>
+      </p>
       <form
         ref={form}
         onSubmit={sendEmail}
@@ -25,7 +48,6 @@ const Contact = () => {
           onChange={handleChange}
           label='Full Name'
           name='fullname'
-          required
         />
         <Input
           formData={formData}
@@ -49,13 +71,14 @@ const Contact = () => {
             id='message'
             required
             rows={4}
+            value={formData.message}
             onChange={handleChange}
             className='p-5 w-full rounded-2xl max-w-md bg-bg4/20 shadow-lg outline-none focus:ring focus:ring-secondary '
           />
         </div>
         <button
           type='submit'
-          className='max-w-fit px-10 gap-2 py-4 text-base font-semibold border-animated bg-secondary hover:bg-primary text-primary hover:text-secondary rounded-full cursor-pointer'
+          className='duration-300 max-w-fit px-10 gap-2 py-4 text-base font-semibold border-animated bg-secondary hover:bg-primary text-primary hover:text-secondary rounded-full cursor-pointer'
         >
           SEND <IoSend />
         </button>

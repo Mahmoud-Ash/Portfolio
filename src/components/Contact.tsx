@@ -12,7 +12,7 @@ const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const form = useRef<HTMLFormElement | null>(null);
   const { setActiveSection } = useActiveSection();
-  const isInView = useInView(sectionRef, { once: false, amount: 1 });
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
   const { formData, handleChange, sendEmail } = useSendEmail(form.current);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const Contact = () => {
           SEND <IoSend />
         </button>
       </form>
-      <div className='flex gap-8 justify-center'>
+      <div className='flex gap-8 justify-center pt-10 '>
         {socials.map((item, i) => (
           <a
             key={i}

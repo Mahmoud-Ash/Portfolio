@@ -45,7 +45,7 @@ body {
   font-style: normal;
   font-size: 14px;
   letter-spacing: 0.3px;
-  color: var(--primary);
+  color: rgb(var(--primary));
   min-height: 100vh;
   background: linear-gradient(
       to bottom,

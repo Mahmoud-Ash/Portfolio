@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import About from "./components/About";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
@@ -8,12 +7,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Contact from "./components/Contact";
 import ActiveSectionProvider from "./context/ActiveSection.tsx/ActiveSectionProvider";
+import Layout from "./Layout";
 
 function App() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      easing: "ease-out",
+      easing: "ease-in-out",
       once: true,
     });
   }, []);
@@ -21,15 +21,13 @@ function App() {
   return (
     <>
       <ActiveSectionProvider>
-        <Header />
-        <main className='max-w-[1200px] mx-auto px-10 pb-10 rounded-xl'>
+        <Layout>
           <Home />
           <About />
           <Skills />
           <Projects />
           <Contact />
-        </main>
-        <footer></footer>
+        </Layout>
       </ActiveSectionProvider>
     </>
   );

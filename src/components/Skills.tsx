@@ -30,7 +30,7 @@ const skills = [techs, tools];
 const Skills = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { setActiveSection } = useActiveSection();
-  const isInView = useInView(sectionRef, { once: false, amount: 0.6 });
+  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
 
   useEffect(() => {
     if (isInView) setActiveSection(2);

@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <nav className='fixed w-full sm:w-fit sm:right-1/2 sm:translate-x-1/2 fade-in-down z-10 bottom-0 sm:bottom-auto sm:top-10 bg-bg4/20 backdrop-blur-lg  sm:rounded-full shadow-2xl'>
-      <ul className='flex sm:w-fit sm:mx-auto sm:rounded-full items-center justify-between sm:justify-normal sm:gap-10 relative py-4 px-8 duration-300'>
+      <ul className='flex items-center justify-between sm:gap-10 relative py-4 px-8 duration-300'>
         {list.map((item, index) => (
           <li key={item.title}>
             <a
@@ -40,7 +40,7 @@ const Header = () => {
                   "duration-500",
                   activeSection === index
                     ? "text-secondary scale-[1.3]"
-                    : "text-primary/80  group-hover:text-secondary group-hover:scale-110"
+                    : "text-primary  group-hover:text-secondary group-hover:scale-110"
                 )}
               >
                 {item.icon}

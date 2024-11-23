@@ -22,7 +22,7 @@ const Contact = () => {
   return (
     <section
       ref={sectionRef}
-      data-aos='flip-down'
+      data-aos='fade-up'
       id='contact'
       className='pt-20 space-y-6'
     >

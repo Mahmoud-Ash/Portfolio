@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { socials } from "../lib/constants";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { useActiveSection } from "../context/ActiveSection.tsx/ActiveSectionContext";
-import { useInView, motion } from "framer-motion";
+import { useInView } from "framer-motion";
 
 const Home = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -20,9 +20,10 @@ const Home = () => {
       className='flex flex-col md:flex-row-reverse items-center justify-between w-full min-h-screen pt-10 sm:pt-40 gap-10 '
     >
       {/* IMAGE SECTION  */}
-      <motion.div
-        initial={{ x: 100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1, transition: { duration: 1 } }}
+      <div
+        // initial={{ x: 100, opacity: 0 }}
+        // animate={{ x: 0, opacity: 1, transition: { duration: 1 } }}
+        data-aos='fade-left'
         className='flex flex-col items-center gap-4 '
       >
         <div className='w-[300px] h-[400px] rounded-full overflow-hidden shadow-xl'>
@@ -45,11 +46,12 @@ const Home = () => {
             </a>
           ))}
         </div>
-      </motion.div>
+      </div>
       {/* DETAILS SECTION  */}
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1, transition: { duration: 1 } }}
+      <div
+        // initial={{ x: -100, opacity: 0 }}
+        // animate={{ x: 0, opacity: 1, transition: { duration: 1 } }}
+        data-aos='fade-right'
         className='flex flex-col gap-2 justify-center items-start'
       >
         <span className='text-lg'>Hello, i'm</span>
@@ -67,7 +69,7 @@ const Home = () => {
           <span>Download CV</span>
           <FaArrowCircleDown size={20} />
         </a>
-      </motion.div>
+      </div>
     </section>
   );
 };

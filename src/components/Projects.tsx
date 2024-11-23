@@ -46,27 +46,20 @@ const Projects = () => {
   }, [isInView, setActiveSection]);
 
   return (
-    <section
-      ref={sectionRef}
-      data-aos='flip-down'
-      id='projects'
-      className='py-20'
-    >
+    <section ref={sectionRef} id='projects' className='py-20'>
       <div className='flex flex-col gap-5'>
         <H1>
           My <span className='text-secondary'>Projects</span>
         </H1>
         {projects.map((project, i) => (
           <div
+            data-aos={i % 2 ? "fade-left" : "fade-right"}
             key={project.title}
             className={`flex flex-col rounded-2xl bg-bg4/20 overflow-hidden min-h-96
                 ${i % 2 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
           >
             {/* DETAILS   */}
-            <div
-              data-aos='flip-down'
-              className='lg:w-1/2 bg-blue-200/20 p-10 space-y-5'
-            >
+            <div className='lg:w-1/2 bg-blue-200/20 p-10 space-y-5'>
               {/* TITLE  */}
               <div className='space-y-2'>
                 <h3 className='before:size-2 before:bg-secondary/40 font-semibold flex items-center gap-4'>
@@ -99,10 +92,7 @@ const Projects = () => {
               </div>
             </div>
             {/* IMAGE  */}
-            <div
-              data-aos='flip-right'
-              className='group lg:w-1/2 overflow-hidden grid'
-            >
+            <div className='group lg:w-1/2 overflow-hidden grid'>
               <img
                 src={project.img}
                 alt='project demo'

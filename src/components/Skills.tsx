@@ -37,12 +37,7 @@ const Skills = () => {
   }, [isInView, setActiveSection]);
 
   return (
-    <section
-      ref={sectionRef}
-      data-aos='flip-down'
-      id='skills'
-      className='py-20'
-    >
+    <section ref={sectionRef} data-aos='fade-up' id='skills' className='py-20'>
       <div className='flex flex-col'>
         <H1>
           My <span className='text-secondary'>Skills</span>

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { socials } from "../lib/constants";
 import H1 from "./Heading";
 import Input from "./Input";
 import { IoSend } from "react-icons/io5";
@@ -21,8 +20,8 @@ const Contact = () => {
 
   return (
     <section
-      ref={sectionRef}
       data-aos='fade-up'
+      ref={sectionRef}
       id='contact'
       className='pt-20 space-y-6'
     >
@@ -77,25 +76,13 @@ const Contact = () => {
           />
         </div>
         <button
+          data-aos='fade-left'
           type='submit'
           className='duration-300 max-w-fit px-10 gap-2 py-4 text-base font-semibold border-animated bg-secondary hover:bg-primary text-primary hover:text-secondary rounded-full cursor-pointer'
         >
           SEND <IoSend />
         </button>
       </form>
-      <div className='flex gap-8 justify-center pt-10 '>
-        {socials.map((item, i) => (
-          <a
-            key={i}
-            href={item.url}
-            target='_blank'
-            title={item.title}
-            className='text-2xl duration-300 ring- ring-primary/80 hover:ring-0 text-primary/50 hover:text-secondary'
-          >
-            {item.icon}
-          </a>
-        ))}
-      </div>
     </section>
   );
 };

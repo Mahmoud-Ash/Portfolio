@@ -62,7 +62,7 @@ const Home = () => {
         <span className='text-secondary text-lg'>specialized in React</span>
         <span className='text-lg'>based in Egypt.</span>
         <a
-          href='myCV.pdf'
+          href='Mahmoud Ashraf(Front end web dev).pdf'
           download='Mahmoud-Ashraf-Resume.pdf'
           className='mt-10 px-8 py-4 space-x-3 text-base font-semibold border-animated bg-secondary hover:bg-primary text-primary hover:text-secondary rounded-lg cursor-pointer'
         >

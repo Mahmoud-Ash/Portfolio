@@ -34,7 +34,7 @@ export const projects = [
     desc: "Online Clothes Store MERN-Stack app",
     techs: [
       "React",
-      "React Router Dom",
+      "React Router",
       "Axios",
       "Redux Toolkit",
       "Redux Persist",

@@ -3,38 +3,7 @@ import H1 from "./Heading";
 import { useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
 import { useActiveSection } from "../context/ActiveSection.tsx/ActiveSectionContext";
-
-const projects = [
-  {
-    title: "E-commerce Web-app",
-    desc: "Online Clothes Store MERN-Stack app",
-    techs: [
-      "React",
-      "React Router Dom",
-      "Axios",
-      "Redux Toolkit",
-      "Redux Persist",
-      "Stripe",
-      "Express",
-      "Mongoose",
-      "JsonWebToken",
-      "Crypto JS",
-    ],
-    img: "e-commerce1.png",
-    link: "",
-    figma: "",
-    repo: "",
-  },
-  {
-    title: "Byewind Dashboard",
-    desc: "Admin Dashboard with dark-light theme",
-    techs: ["React", "Axios", "Recharts", "Tailwind CSS"],
-    img: "byewind-light.png",
-    figma: "https://www.figma.com/community/file/1210542873091115123",
-    link: "https://mahmoud-ash.github.io/ByeWindDashboard/",
-    repo: "https://github.com/Mahmoud-Ash/ByeWindDashboard",
-  },
-];
+import { projects } from "../lib/constants";
 
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);

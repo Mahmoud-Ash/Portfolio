@@ -24,7 +24,7 @@ export const socials = [
   {
     title: "linkedin",
     icon: <FaLinkedin />,
-    url: "https://www.linkedin.com/in/mahmoud-ashraf97/",
+    url: "https://www.linkedin.com/in/mahmoud-ash/",
   },
 ];
 

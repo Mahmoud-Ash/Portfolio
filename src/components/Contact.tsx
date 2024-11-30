@@ -23,7 +23,7 @@ const Contact = () => {
       data-aos='fade-up'
       ref={sectionRef}
       id='contact'
-      className='pt-20 space-y-6'
+      className='pt-20 space-y-6 pb-2'
     >
       <H1>
         get <span className='text-secondary'>in touch</span>
@@ -76,7 +76,6 @@ const Contact = () => {
           />
         </div>
         <button
-          data-aos='fade-left'
           type='submit'
           className='duration-300 max-w-fit px-10 gap-2 py-4 text-base font-semibold border-animated bg-secondary hover:bg-primary text-primary hover:text-secondary rounded-full cursor-pointer'
         >
